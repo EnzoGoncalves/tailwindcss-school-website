@@ -1047,8 +1047,8 @@ body {
   left: 0px;
 }
 
-.top-8 {
-  top: 2rem;
+.top-10 {
+  top: 2.5rem;
 }
 
 .top-1\/2 {
@@ -1061,10 +1061,6 @@ body {
 
 .right-0 {
   right: 0px;
-}
-
-.top-10 {
-  top: 2.5rem;
 }
 
 .top-14 {
@@ -1351,6 +1347,10 @@ body {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .rounded-\[5px\] {
