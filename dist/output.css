@@ -1287,12 +1287,6 @@ body {
   height: 5rem;
 }
 
-.h-max {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-}
-
 .max-h-\[180px\] {
   max-height: 180px;
 }
