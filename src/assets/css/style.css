@@ -119,11 +119,11 @@
         @apply max-w-[44px] row-span-2 self-center place-self-end;
     }
 
-    .icons {
-        @apply w-6 h-6 2xs:w-10 2xs:h-10 flex items-center justify-center rounded-full transition duration-500 p-2 2xs:p-3 mx-[5px] bg-white hover:bg-[#dc8cdb] cursor-pointer fill-[#dc8cdb] hover:fill-white
+    .icon {
+        @apply w-6 h-6 2xs:w-10 2xs:h-10 flex items-center justify-center rounded-full transition duration-300 p-2 2xs:p-3 mx-[5px] bg-white hover:bg-[#dc8cdb] cursor-pointer fill-[#dc8cdb] hover:fill-white
     }
 
-    .icon {
+    .icon svg {
         @apply flex items-center justify-center;
     }
 }

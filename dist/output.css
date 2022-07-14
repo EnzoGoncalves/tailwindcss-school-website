@@ -832,7 +832,7 @@ body {
   align-self: center;
 }
 
-.icons {
+.icon {
   margin-left: 5px;
   margin-right: 5px;
   display: flex;
@@ -850,24 +850,24 @@ body {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 500ms;
+  transition-duration: 300ms;
 }
 
-.icons:hover {
+.icon:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(220 140 219 / var(--tw-bg-opacity));
   fill: #fff;
 }
 
 @media (min-width: 300px) {
-  .icons {
+  .icon {
     height: 2.5rem;
     width: 2.5rem;
     padding: 0.75rem;
   }
 }
 
-.icon {
+.icon svg {
   display: flex;
   align-items: center;
   justify-content: center;
