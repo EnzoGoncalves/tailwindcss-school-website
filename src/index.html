@@ -32,67 +32,78 @@
 
     <!-- CUSTOM JS -->
     <script src="./assets/js/script.js" defer></script>
+    <script src="./assets/js/accessibility.js" defer></script>
   </head>
   <body>
     <!-- HEADER -->
     <header class="h-[100px] md:h-[110px] w-full relative z-[999]" id="header">
       <div
-        class="relative h-full mx-auto px-10 z-50 bg-gradient-to-r from-[rgba(246,191,159,1)] to-[rgba(219,138,222,1)] xl:bg-none"
+        class="relative h-full mx-auto px-10 z-50 gradient-theme"
       >
         <div
           class="container xl:px-12 relative mx-auto flex justify-between h-full items-center"
         >
           <img
             src="assets/images/header-bg.png"
-            class="absolute -z-10 left-0 hidden xl:block"
+            class="absolute -z-10 left-0 hidden xl:block xl:saturate-150"
+            alt=""
           />
-          <img
-            src="assets/images/templatemo-eduwell.png"
-            alt="EduWell logo"
-            class="w-28 2xs:w-fit cursor-pointer"
-          />
+          <a href="#home">
+            <img
+              src="assets/images/templatemo-eduwell.png"
+              alt="Home of EduWell School"
+              class="w-28 2xs:w-fit cursor-pointer"
+            />
+          </a>
           <svg
+            id="dropdown-menu"
             xmlns="http://www.w3.org/2000/svg"
-            class="h-10 w-8 2xs:w-10 block md:hidden text-white menu_icon cursor-pointer"
+            class="menu-icon h-10 w-8 2xs:w-10 block md:hidden text-white cursor-pointer"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             stroke-width="2"
+            role="button"
+            aria-label="open dropdown menu navigation"
+            aria-expanded="false"
+            tabindex="0"
           >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M4 6h16M4 12h8m-8 6h16"
+              d="M4 6h36M4 12h8m-8 6h36"
             />
           </svg>
           <nav class="hidden md:block">
             <ul class="flex items-center">
               <li
-                class="mx-1 lg:mx-4 text-sm lg:text-base text-white font-open-sans hover:opacity-75"
-                ><a href="#home" class="p-2">Home</a></li
+                class="nav-link"
+                ><a role="button" href="#home" class="p-2">Home</a></li
               >
               <li
-                class="mx-1 lg:mx-4 text-sm lg:text-base text-white font-open-sans hover:opacity-75"
-                ><a href="#services" class="p-2">Services</a></li
+                class="nav-link"
+                ><a role="button" href="#services" class="p-2">Services</a></li
               >
               <li
-                class="mx-1 lg:mx-4 text-sm lg:text-base text-white font-open-sans hover:opacity-75"
-                ><a href="#courses" class="p-2">Courses</a></li
+                class="nav-link"
+                ><a role="button" href="#courses" class="p-2">Courses</a></li
               >
               <li
                 id="pages"
-                class="mx-1 lg:mx-4 text-sm lg:text-base text-white font-open-sans flex items-center relative"
+                role="button"
+                aria-expanded="false"
+                class="mx-1 lg:mx-4 text-sm lg:text-base text-nav-link-color font-open-sans flex items-center relative"
                 ><a class="p-2 cursor-pointer">Pages</a>
 
                 <svg
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-3 w-3 fill-white"
+                  class="h-3 w-3 fill-nav-link-color"
                   width="768"
                   height="768"
                   viewBox="0 0 768 768"
+                  aria-hidden="true"
                 >
-                  <title></title>
                   <g id="icomoon-ignore"></g>
                   <path
                     d="M90 165l294 294 294-294 90 90-384 384-384-384z"
@@ -104,29 +115,31 @@
                   class="absolute top-10 rounded-[5px] flex-col w-36 transition-all duration-300 overflow-hidden pages-submenu-inactive"
                 >
                   <li
-                    ><a href="#" class="pages-dropdown-menu-link"
+                    ><a role="button" href="#" class="pages-dropdown-menu-link"
                       >About Us</a
                     ></li
                   >
                   <li
-                    ><a href="#" class="pages-dropdown-menu-link"
+                    ><a role="button" href="#" class="pages-dropdown-menu-link"
                       >Our Services</a
                     ></li
                   >
                   <li
-                    ><a href="#" class="pages-dropdown-menu-link"
+                    ><a role="button" href="#" class="pages-dropdown-menu-link"
                       >Contact Us</a
                     ></li
                   >
                 </ul>
               </li>
               <li
-                class="mx-1 lg:mx-4 text-sm lg:text-base text-white font-open-sans hover:opacity-75"
-                ><a href="#testimonials" class="p-2">Testimonials</a></li
+                class="nav-link"
+                ><a role="button" href="#testimonials" class="p-2"
+                  >Testimonials</a
+                ></li
               >
               <li
-                class="mx-1 lg:mx-4 text-sm lg:text-base text-white font-open-sans hover:opacity-75"
-                ><a href="#contact" class="p-2">Contact Us</a></li
+                class="nav-link"
+                ><a role="button" href="#contact" class="p-2">Contact Us</a></li
               >
             </ul>
           </nav>
@@ -134,13 +147,22 @@
       </div>
 
       <!-- DROPDOWN NAVIGATION -->
-      <nav class="nav px-3 w-full h-0 overflow-hidden md:hidden">
+      <nav
+        aria-label="dropdown navigation"
+        class="nav px-3 w-full h-0 overflow-hidden md:hidden"
+      >
         <ul class="max-w-lg mx-auto flex flex-col align-center">
-          <li><a href="#home" class="dropdown-menu-link">Home</a></li>
-          <li><a href="#services" class="dropdown-menu-link">Services</a></li>
-          <li><a href="#courses" class="dropdown-menu-link">Courses</a></li>
-          <li class="relative">
-            <a class="dropdown-menu-link cursor-pointer submenu-link"
+          <li role="button"
+            ><a href="#home" class="dropdown-menu-link">Home</a></li
+          >
+          <li role="button"
+            ><a href="#services" class="dropdown-menu-link">Services</a></li
+          >
+          <li role="button"
+            ><a href="#courses" class="dropdown-menu-link">Courses</a></li
+          >
+          <li role="" aria-label="open pages submenu dropdow" aria-expanded="false" tabindex="0" class="relative submenu-link">
+            <a class="dropdown-menu-link cursor-pointer"
               >Pages
               <svg
                 version="1.1"
@@ -157,239 +179,270 @@
             </a>
           </li>
           <ul class="submenu h-0 overflow-hidden">
-            <li><a href="#" class="submenu-dropdown-menu-link">About Us</a></li>
-            <li
+            <li role="button"><a href="#" class="submenu-dropdown-menu-link">About Us</a></li>
+            <li role="button"
               ><a href="#" class="submenu-dropdown-menu-link"
                 >Our Services</a
               ></li
             >
-            <li
+            <li role="button"
               ><a href="#" class="submenu-dropdown-menu-link">Contact Us</a></li
             >
           </ul>
-          <li
+          <li role="button"
             ><a href="#testimonials" class="dropdown-menu-link"
               >Testimonials</a
             ></li
           >
-          <li><a href="#contact" class="dropdown-menu-link">Contact Us</a></li>
+          <li role="button"
+            ><a href="#contact" class="dropdown-menu-link">Contact Us</a></li
+          >
         </ul>
       </nav>
     </header>
 
     <main>
       <!-- HOME -->
-      <section id="home" class="relative pt-24">
-        <div class="container lg:flex items-center px-4 mx-auto">
-          <div class="text-center lg:text-left lg:pl-10 mb-20 lg:mb-0">
+      <section
+        role="region"
+        aria-label="Welcome to our school"
+        id="home"
+        class="relative pt-20 overflow-x-hidden"
+      >
+        <div class="container lg:grid grid-cols-5 px-4 mx-auto">
+          <div class="text-center lg:text-left lg:pl-10 col-span-2 mb-20 xl:mb-0">
             <h6 class="text-[17px] font-medium text-[#777777]"
               >Welcome To Our School</h6
             >
-            <h2
+            <h1
               class="font-black leading-tight mt-5 mb-10 max-w-2xl mx-auto home-title"
               >Best Place To Learn Graphic
-              <span class="text-[#dc8cdb]">Design!</span></h2
+              <span class="text-[#dc8cdb]">Design!</span></h1
             >
             <a href="#contact" class="button">Join us now!</a>
           </div>
-          <div class="relative lg:ml-20 w-full">
+          <div class="relative lg:ml-20 w-full col-span-3">
             <img
               src="assets/images/banner-right-image.png"
               class="mx-auto px-3 w-full xl:w-4/5 2xl:w-3/5 2xl:mr-24"
+              alt="A student girl holding a book in her arms"
             />
             <img
               src="assets/images/banner-right-dec.png"
               class="absolute -z-50 right-0 lg:-right-10 top-10 lg:top-5 md:w-3/4 lg:w-max"
+              alt=""
             />
           </div>
         </div>
         <img
           src="assets/images/banner-left-dec.png"
           class="absolute -z-50 top-14"
+          alt=""
         />
       </section>
 
       <!-- SERVICES -->
-      <section id="services" class="container mx-auto pt-24">
+      <section
+        role="region"
+        aria-label="services"
+        id="services"
+        class="container mx-auto pt-24"
+      >
         <div class="text-center">
           <p class="subtitle">Our Services</p>
-          <h3 class="title"
-            >Provided <span class="text-[#dc8cdb]">Services</span></h3
+          <h2 class="title"
+            >Provided <span class="text-[#dc8cdb]">Services</span></h2
           >
         </div>
         <div class="mt-10">
           <div class="owl-carousel-one owl-carousel owl-theme w-full">
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-01.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Useful Tricks</h1>
+              <h3 class="service-title">Useful Tricks</h3>
               <p class="service-description"
                 >EduWell is the professional HTML5 template for your school or
                 university websites.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-02.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Creative Ideas</h1>
+              <h3 class="service-title">Creative Ideas</h3>
               <p class="service-description"
                 >You can download and use this EduWell Template for your
                 teaching and learning stuffs.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-03.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Ready Target</h1>
+              <h3 class="service-title">Ready Target</h3>
               <p class="service-description"
                 >Please tell your friends about the best CSS template website
                 that is TemplateMo.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-04.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Useful Tricks</h1>
+              <h3 class="service-title">Useful Tricks</h3>
               <p class="service-description"
                 >Aenean bibendum consectetur ex eu porttitor. Pellentesque id
                 ultrices metus.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-01.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Useful Tricks</h1>
+              <h3 class="service-title">Useful Tricks</h3>
               <p class="service-description"
                 >EduWell is the professional HTML5 template for your school or
                 university websites.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-02.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Creative Ideas</h1>
+              <h3 class="service-title">Creative Ideas</h3>
               <p class="service-description"
                 >You can download and use this EduWell Template for your
                 teaching and learning stuffs.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-03.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Ready Target</h1>
+              <h3 class="service-title">Ready Target</h3>
               <p class="service-description"
                 >Please tell your friends about the best CSS template website
                 that is TemplateMo.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-04.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Useful Tricks</h1>
+              <h3 class="service-title">Useful Tricks</h3>
               <p class="service-description"
                 >Aenean bibendum consectetur ex eu porttitor. Pellentesque id
                 ultrices metus.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-01.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Useful Tricks</h1>
+              <h3 class="service-title">Useful Tricks</h3>
               <p class="service-description"
                 >EduWell is the professional HTML5 template for your school or
                 university websites.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-02.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Creative Ideas</h1>
+              <h3 class="service-title">Creative Ideas</h3>
               <p class="service-description"
                 >You can download and use this EduWell Template for your
                 teaching and learning stuffs.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-03.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Ready Target</h1>
+              <h3 class="service-title">Ready Target</h3>
               <p class="service-description"
                 >Please tell your friends about the best CSS template website
                 that is TemplateMo.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-04.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Useful Tricks</h1>
+              <h3 class="service-title">Useful Tricks</h3>
               <p class="service-description"
                 >Aenean bibendum consectetur ex eu porttitor. Pellentesque id
                 ultrices metus.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-01.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Useful Tricks</h1>
+              <h3 class="service-title">Useful Tricks</h3>
               <p class="service-description"
                 >EduWell is the professional HTML5 template for your school or
                 university websites.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-02.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Creative Ideas</h1>
+              <h3 class="service-title">Creative Ideas</h3>
               <p class="service-description"
                 >You can download and use this EduWell Template for your
                 teaching and learning stuffs.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-03.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Ready Target</h1>
+              <h3 class="service-title">Ready Target</h3>
               <p class="service-description"
                 >Please tell your friends about the best CSS template website
                 that is TemplateMo.</p
               >
             </div>
             <div class="service">
-              <img
+              <img 
                 src="assets/images/service-icon-04.png"
                 class="mx-auto !w-auto"
+                alt=""
               />
-              <h1 class="service-title">Useful Tricks</h1>
+              <h3 class="service-title">Useful Tricks</h3>
               <p class="service-description"
                 >Aenean bibendum consectetur ex eu porttitor. Pellentesque id
                 ultrices metus.</p
@@ -400,19 +453,26 @@
       </section>
 
       <!-- COURSES -->
-      <section id="courses" class="relative pt-24">
+      <section
+        role="region"
+        aria-label="courses"
+        id="courses"
+        class="relative pt-24"
+      >
         <img
           src="assets/images/our-courses-left-dec.png"
           class="absolute top-0 left-8 -z-50"
+          alt=""
         />
         <img
           src="assets/images/our-courses-right-dec.png"
           class="absolute top-0 right-8 -z-50"
+          alt=""
         />
         <div class="container mx-auto text-center mb-14">
           <p class="subtitle">Our Courses</p>
-          <h3 class="title"
-            >What You Can <span class="text-[#dc8cdb]">Learn</span></h3
+          <h2 class="title"
+            >What You Can <span class="text-[#dc8cdb]">Learn</span></h2
           >
           <p class="mt-8 px-20"
             >You just think about TemplateMo whenever you need free CSS
@@ -433,6 +493,7 @@
                 <img
                   src="assets/images/courses-01.jpg"
                   class="rounded-md md:rounded-r-none w-full"
+                  alt=""
                 />
               </div>
               <div class="course-info">
@@ -467,13 +528,14 @@
 
       <!-- PROMOTION -->
       <section
+        role="region"
         class="py-10 2xl:py-0 my-28 lg:mt-44 bg-cta bg-no-repeat bg-center bg-cover"
       >
         <div
           class="container mx-auto py-28 md:py-36 lg:py-24 px-4 flex flex-col lg:flex-row"
         >
           <div class="w-full mb-10 lg:w-fit lg:mx-10">
-            <img src="assets/images/cta-left-image.png" class="w-full" />
+            <img src="assets/images/cta-left-image.png" class="w-full" alt="A breafing meeting in a light office"/>
           </div>
           <div class="text-white">
             <p>Get the sale right now!</p>
@@ -490,20 +552,27 @@
       </section>
 
       <!-- TESTIMONIALS -->
-      <section id="testimonials" class="relative pt-24">
+      <section
+        role="region"
+        aria-label="testimonials"
+        id="testimonials"
+        class="relative pt-24"
+      >
         <img
           src="assets/images/testimonials-left-dec.png"
           class="absolute left-0 -top-14 -z-50"
+          alt=""
         />
         <img
           src="assets/images/testimonials-right-dec.png"
           class="absolute right-0 -bottom-20 -z-50"
+          alt=""
         />
         <div class="container mx-auto">
           <div class="text-center">
             <p class="subtitle">Testimonials</p>
-            <h3 class="title"
-              >What They <span class="text-[#dc8cdb]">Think</span></h3
+            <h2 class="title"
+              >What They <span class="text-[#dc8cdb]">Think</span></h2
             >
           </div>
           <div class="owl-carousel-two owl-carousel owl-theme flex">
@@ -513,9 +582,9 @@
                 nec. Nunc diam lorem.”</p
               >
               <div class="testimonial-entity">
-                <h4 class="testimonial-person">Maxi Power</h4>
+                <p class="testimonial-person">Maxi Power</p>
                 <span class="testimonial-function">Fashion Designer</span>
-                <img src="assets/images/quote.png" class="testimonial-quote" />
+                <img src="assets/images/quote.png" class="testimonial-quote" alt="Quote image"/>
               </div>
             </div>
             <div class="testimonial">
@@ -524,9 +593,9 @@
                 nec. Nunc diam lorem.”</p
               >
               <div class="testimonial-entity">
-                <h4 class="testimonial-person">Andrew Hall</h4>
+                <p class="testimonial-person">Andrew Hall</p>
                 <span class="testimonial-function">Marketing Manager</span>
-                <img src="assets/images/quote.png" class="testimonial-quote" />
+                <img src="assets/images/quote.png" class="testimonial-quote" alt="Quote image"/>
               </div>
             </div>
             <div class="testimonial">
@@ -535,9 +604,9 @@
                 nec. Nunc diam lorem.”</p
               >
               <div class="testimonial-entity">
-                <h4 class="testimonial-person">Helen Shiny</h4>
+                <p class="testimonial-person">Helen Shiny</p>
                 <span class="testimonial-function">Tech Officer</span>
-                <img src="assets/images/quote.png" class="testimonial-quote" />
+                <img src="assets/images/quote.png" class="testimonial-quote" alt="Quote image"/>
               </div>
             </div>
             <div class="testimonial">
@@ -546,9 +615,9 @@
                 nec. Nunc diam lorem.”</p
               >
               <div class="testimonial-entity">
-                <h4 class="testimonial-person">Olivia Too</h4>
+                <p class="testimonial-person">Olivia Too</p>
                 <span class="testimonial-function">Creative Designer</span>
-                <img src="assets/images/quote.png" class="testimonial-quote" />
+                <img src="assets/images/quote.png" class="testimonial-quote" alt="Quote image"/>
               </div>
             </div>
             <div class="testimonial">
@@ -557,9 +626,9 @@
                 nec. Nunc diam lorem.”</p
               >
               <div class="testimonial-entity">
-                <h4 class="testimonial-person">Catherine Walk</h4>
+                <p class="testimonial-person">Catherine Walk</p>
                 <span class="testimonial-function">CEO & Founder</span>
-                <img src="assets/images/quote.png" class="testimonial-quote" />
+                <img src="assets/images/quote.png" class="testimonial-quote" alt="Quote image"/>
               </div>
             </div>
             <div class="testimonial">
@@ -568,9 +637,9 @@
                 nec. Nunc diam lorem.”</p
               >
               <div class="testimonial-entity">
-                <h4 class="testimonial-person">David Martin</h4>
+                <p class="testimonial-person">David Martin</p>
                 <span class="testimonial-function">CTO of Tech Company</span>
-                <img src="assets/images/quote.png" class="testimonial-quote" />
+                <img src="assets/images/quote.png" class="testimonial-quote" alt="Quote image"/>
               </div>
             </div>
             <div class="testimonial">
@@ -579,9 +648,9 @@
                 nec. Nunc diam lorem.”</p
               >
               <div class="testimonial-entity">
-                <h4 class="testimonial-person">Sophia Whity</h4>
+                <p class="testimonial-person">Sophia Whity</p>
                 <span class="testimonial-function">CEO and Co-Founder</span>
-                <img src="assets/images/quote.png" class="testimonial-quote" />
+                <img src="assets/images/quote.png" class="testimonial-quote" alt="Quote image"/>
               </div>
             </div>
           </div>
@@ -604,17 +673,22 @@
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              class="border-none rounded-2xl -z-10"
+              class="border-none rounded-2xl -z-10 relative" title="EduWell fisic location"
+              aria-label="EduWell fisic location"
             ></iframe>
 
             <!-- CONTACT -->
-            <div class="lg:flex lg:ml-16 lg:-mt-10 gap-5">
+            <aside
+              aria-label="contact informations"
+              class="lg:flex lg:ml-16 lg:-mt-10 gap-5 lg:w-max"
+            >
               <div
                 class="mt-[15px] p-5 bg-white shadow-base grid grid-cols-auto_2 rounded-2xl"
               >
                 <img
                   src="assets/images/quote.png"
                   class="h-[50px] row-span-2 mr-4"
+                  alt="Quote image"
                 />
                 <h4 class="text-lg font-black uppercase leading-tight"
                   >Phone</h4
@@ -627,19 +701,21 @@
                 <img
                   src="assets/images/quote.png"
                   class="h-[50px] row-span-2 mr-4"
+                  alt="Quote image"
                 />
                 <h4 class="text-lg font-black uppercase leading-tight"
                   >Mobile</h4
                 >
                 <p class="text-[15px] text-[#dc8cdb] font-bold">090-080-0760</p>
               </div>
-            </div>
+            </aside>
           </div>
           <div
+            role="form"
             class="container mx-auto p-10 bg-white mt-10 rounded-2xl shadow-base lg:w-1/2 lg:-ml-[100px]"
           >
             <p class="subtitle">Contact Us</p>
-            <h4 class="title">Say <span class="text-[#dc8cdb]">Hello</span></h4>
+            <h2 class="title">Say <span class="text-[#dc8cdb]">Hello</span></h2>
             <p class="mt-8 mb-10 text-sm leading-6 text-[#4a4a4a]"
               >IF you need a working contact form by PHP script, please visit
               TemplateMo's contact page for more info</p
@@ -673,7 +749,7 @@
         </div>
 
         <!-- FOOTER -->
-        <footer class="pb-10">
+        <footer class="pb-10" role="contentinfo">
           <!-- <img src="assets/images/footer-bg.png" class="absolute min-w-fit bottom-0 right-0 -z-50"> -->
           <div class="container flex mx-auto w-fit mt-[70px]">
             <div class="icons">

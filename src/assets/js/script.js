@@ -54,7 +54,7 @@ submenu_link.addEventListener("click", () => {
   }
 });
 
-// Change the pages submenu to bea activate or not based on the mouse over in the element
+// Change the pages submenu to be active or not based on the mouse over in the element
 const pages = document.querySelector("#pages");
 const pages_list = document.querySelector("#pages-list");
 pages.addEventListener("mouseover", () => {
@@ -93,19 +93,21 @@ window.addEventListener(
 );
 
 // Toggle the opening of the dropdown menu and the menu icon
-const menu_icon = document.querySelector(".menu_icon");
+const menu_icon = document.querySelector(".menu-icon");
 const nav = document.querySelector(".nav");
 menu_icon.addEventListener("click", () => {
-  menu_icon.childNodes[1].getAttribute("d") == "M4 6h16M4 12h8m-8 6h16"
+  menu_icon.childNodes[1].getAttribute("d") == "M4 6h36M4 12h8m-8 6h36"
     ? menu_icon.childNodes[1].setAttribute("d", "M6 18L18 6M6 6l12 12")
-    : menu_icon.childNodes[1].setAttribute("d", "M4 6h16M4 12h8m-8 6h16");
+    : menu_icon.childNodes[1].setAttribute("d", "M4 6h36M4 12h8m-8 6h36");
 
   if (nav.classList.contains("active-menu")) {
     nav.classList.remove("active-menu");
     nav.classList.add("inactive-menu");
+    nav.removeAttribute('aria-label', 'dropdown')
   } else {
     nav.classList.remove("inactive-menu");
     nav.classList.add("active-menu");
+    nav.setAttribute('aria-label', 'dropdown')
   }
 });
 
