@@ -27,6 +27,10 @@
         @apply text-[13px] font-semibold text-[#777777] uppercase
     }
 
+    .link {
+        @apply underline
+    }
+
     .gradient-theme {
         @apply bg-gradient-to-r from-[rgba(246,191,159,1)] to-[rgba(219,138,222,1)];
     }
@@ -126,8 +130,8 @@
     .icon svg {
         @apply flex items-center justify-center;
     }
-}
 
-.owl-dot.active span{
-    background: #dc8cdb !important;
+    .owl-dot.active span {
+        @apply !bg-[#dc8cdb]
+    }
 }

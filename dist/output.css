@@ -484,6 +484,11 @@ body {
   color: rgb(119 119 119 / var(--tw-text-opacity));
 }
 
+.link {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
 .gradient-theme {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
   --tw-gradient-from: rgba(246,191,159,1);
@@ -871,6 +876,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.owl-dot.active span {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(220 140 219 / var(--tw-bg-opacity)) !important;
 }
 
 *, ::before, ::after {
@@ -1678,10 +1688,6 @@ body {
 
 .duration-300 {
   transition-duration: 300ms;
-}
-
-.owl-dot.active span{
-  background: #dc8cdb !important;
 }
 
 @media (min-width: 768px) {
