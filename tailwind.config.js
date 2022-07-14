@@ -6,6 +6,9 @@ module.exports = {
       'open-sans': ['"Open Sans"', 'ui-sans-serif', 'sans-serif'],
     },
     extend: {
+      colors: {
+        'nav-link-color': '#fff'
+      },
       screens: {
         'xs': '400px',
         '2xs': '300px'

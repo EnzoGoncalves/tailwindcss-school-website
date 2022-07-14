@@ -38,14 +38,14 @@
     <!-- HEADER -->
     <header class="h-[100px] md:h-[110px] w-full relative z-[999]" id="header">
       <div
-        class="relative h-full mx-auto px-10 z-50 bg-gradient-to-r from-[rgba(246,191,159,1)] to-[rgba(219,138,222,1)] xl:bg-none"
+        class="relative h-full mx-auto px-10 z-50 gradient-theme"
       >
         <div
           class="container xl:px-12 relative mx-auto flex justify-between h-full items-center"
         >
           <img
             src="assets/images/header-bg.png"
-            class="absolute -z-10 left-0 hidden xl:block"
+            class="absolute -z-10 left-0 hidden xl:block xl:saturate-150"
             alt=""
           />
           <a href="#home">
@@ -77,28 +77,28 @@
           <nav class="hidden md:block">
             <ul class="flex items-center">
               <li
-                class="mx-1 lg:mx-4 text-sm lg:text-base text-white font-open-sans hover:opacity-75"
+                class="nav-link"
                 ><a role="button" href="#home" class="p-2">Home</a></li
               >
               <li
-                class="mx-1 lg:mx-4 text-sm lg:text-base text-white font-open-sans hover:opacity-75"
+                class="nav-link"
                 ><a role="button" href="#services" class="p-2">Services</a></li
               >
               <li
-                class="mx-1 lg:mx-4 text-sm lg:text-base text-white font-open-sans hover:opacity-75"
+                class="nav-link"
                 ><a role="button" href="#courses" class="p-2">Courses</a></li
               >
               <li
                 id="pages"
                 role="button"
                 aria-expanded="false"
-                class="mx-1 lg:mx-4 text-sm lg:text-base text-white font-open-sans flex items-center relative"
+                class="mx-1 lg:mx-4 text-sm lg:text-base text-nav-link-color font-open-sans flex items-center relative"
                 ><a class="p-2 cursor-pointer">Pages</a>
 
                 <svg
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-3 w-3 fill-white"
+                  class="h-3 w-3 fill-nav-link-color"
                   width="768"
                   height="768"
                   viewBox="0 0 768 768"
@@ -132,13 +132,13 @@
                 </ul>
               </li>
               <li
-                class="mx-1 lg:mx-4 text-sm lg:text-base text-white font-open-sans hover:opacity-75"
+                class="nav-link"
                 ><a role="button" href="#testimonials" class="p-2"
                   >Testimonials</a
                 ></li
               >
               <li
-                class="mx-1 lg:mx-4 text-sm lg:text-base text-white font-open-sans hover:opacity-75"
+                class="nav-link"
                 ><a role="button" href="#contact" class="p-2">Contact Us</a></li
               >
             </ul>
@@ -207,10 +207,10 @@
         role="region"
         aria-label="Welcome to our school"
         id="home"
-        class="relative pt-24 overflow-x-hidden"
+        class="relative pt-20 overflow-x-hidden"
       >
-        <div class="container lg:flex items-center px-4 mx-auto">
-          <div class="text-center lg:text-left lg:pl-10 mb-20 lg:mb-0">
+        <div class="container lg:grid grid-cols-5 px-4 mx-auto">
+          <div class="text-center lg:text-left lg:pl-10 col-span-2 mb-20 xl:mb-0">
             <h6 class="text-[17px] font-medium text-[#777777]"
               >Welcome To Our School</h6
             >
@@ -221,7 +221,7 @@
             >
             <a href="#contact" class="button">Join us now!</a>
           </div>
-          <div class="relative lg:ml-20 w-full">
+          <div class="relative lg:ml-20 w-full col-span-3">
             <img
               src="assets/images/banner-right-image.png"
               class="mx-auto px-3 w-full xl:w-4/5 2xl:w-3/5 2xl:mr-24"

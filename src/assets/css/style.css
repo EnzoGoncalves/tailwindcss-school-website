@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer base {    
     @font-face {
         font-family: 'Open Sans';
     }
@@ -12,7 +12,7 @@
     }
     
     .button {
-        @apply uppercase text-sm text-white py-3 px-8 bg-gradient-to-r from-[rgba(246,191,159,1)] to-[rgba(219,138,222,1)] rounded-md
+        @apply uppercase text-sm text-white py-3 px-8 gradient-theme rounded-md transition hover:scale-105
     }
 
     .alternative-button {
@@ -25,6 +25,14 @@
 
     .subtitle {
         @apply text-[13px] font-semibold text-[#777777] uppercase
+    }
+
+    .gradient-theme {
+        @apply bg-gradient-to-r from-[rgba(246,191,159,1)] to-[rgba(219,138,222,1)];
+    }
+
+    .nav-link {
+        @apply mx-1 lg:mx-4 text-sm lg:text-base xl:text-lg text-nav-link-color font-open-sans hover:opacity-75
     }
 
     .pages-dropdown-menu-link {
