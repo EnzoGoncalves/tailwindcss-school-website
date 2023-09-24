@@ -64,3 +64,13 @@ html {
       height: 0;
   }
 }
+
+.gradient {
+  background-image: linear-gradient(rgba(246,191,159,1), rgba(219,138,222,1));
+}
+
+@media (min-width: 1280px) {
+  .gradient {
+    background-image: none;
+  }
+}

@@ -32,7 +32,7 @@
     }
 
     .gradient-theme {
-        @apply bg-gradient-to-r from-[rgba(246,191,159,1)] to-[rgba(219,138,222,1)];
+        @apply  bg-gradient-to-r from-[rgba(246,191,159,1)] to-[rgba(219,138,222,1)];
     }
 
     .nav-link {
